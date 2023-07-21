@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <title>Document</title>
+</head>
+
+<body>
+
+  <input class="input-text" type="text" placeholder="type a number" onkeydown="handleKeydown(event)">
+
+  <div class="numbers-html"></div>
+
+  <script>
+
+
+    function inputText() {
+      const number = $('.input-text').val();
+
+      fizzBuzz(number);
+    }
+
+
+    function fizzBuzz(value) {
+      let numberHtml = ``;
+
+      for (let i = 1; i <= value; i++) {
+        let value = '';
+
+
+        if (i % 3 === 0 && i % 5 === 0) {
+          value = `FizzBuzz (${i})`
+          let html = `<div> <p>${value}</p> </div>`
+          numberHtml += html;
+        }
+        else if (i % 3 === 0) {
+          value = `Fizz (${i})`
+          let html = `<div> <p>${value}</p> </div>`
+          numberHtml += html;
+        }
+        else if (i % 5 === 0) {
+          value = `Buzz (${i})`
+          let html = `<div> <p>${value}</p> </div>`
+          numberHtml += html;
+        }
+        else {
+          value = `${i}`;
+          let html = `<div> <p>${value}</p> </div>`
+          numberHtml += html;
+        }
+      }
+
+      $('.numbers-html').html(numberHtml)
+    }
+
+    function handleKeydown(event) {
+      if (event.key === 'Enter') {
+        inputText();
+      }
+    }
+
+  </script>
+</body>
+
+</html
